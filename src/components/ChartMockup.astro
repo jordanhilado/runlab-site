@@ -1,0 +1,230 @@
+---
+---
+
+<div class="chart-card">
+  <div class="chart-header">
+    <h3 class="chart-title">Load Management</h3>
+    <div class="chart-legend">
+      <span class="legend-item">
+        <span class="legend-dot green"></span>
+        FITNESS
+      </span>
+      <span class="legend-item">
+        <span class="legend-dot yellow"></span>
+        FATIGUE
+      </span>
+    </div>
+  </div>
+
+  <div class="chart-area">
+    <svg viewBox="0 0 480 180" fill="none" xmlns="http://www.w3.org/2000/svg" class="chart-svg">
+      <!-- Grid lines -->
+      <line x1="0" y1="45" x2="480" y2="45" stroke="var(--color-surface-high)" stroke-width="1"/>
+      <line x1="0" y1="90" x2="480" y2="90" stroke="var(--color-surface-high)" stroke-width="1"/>
+      <line x1="0" y1="135" x2="480" y2="135" stroke="var(--color-surface-high)" stroke-width="1"/>
+
+      <!-- Fitness line (green, trending upward with zigzag) -->
+      <polyline
+        points="0,130 40,120 80,105 120,110 160,95 200,85 240,90 280,75 320,65 360,70 400,55 440,50 480,42"
+        stroke="#00D68F"
+        stroke-width="2.5"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <!-- Fitness area fill -->
+      <polyline
+        points="0,130 40,120 80,105 120,110 160,95 200,85 240,90 280,75 320,65 360,70 400,55 440,50 480,42 480,180 0,180"
+        fill="url(#greenGradient)"
+      />
+
+      <!-- Fatigue line (yellow, gentler lower curve) -->
+      <polyline
+        points="0,140 40,135 80,128 120,132 160,125 200,118 240,122 280,115 320,110 360,112 400,105 440,100 480,95"
+        stroke="#FFD60A"
+        stroke-width="2.5"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <!-- Fatigue area fill -->
+      <polyline
+        points="0,140 40,135 80,128 120,132 160,125 200,118 240,122 280,115 320,110 360,112 400,105 440,100 480,95 480,180 0,180"
+        fill="url(#yellowGradient)"
+      />
+
+      <!-- Today marker -->
+      <line x1="480" y1="0" x2="480" y2="180" stroke="#3361C1" stroke-width="1" stroke-dasharray="4,4" opacity="0.4"/>
+
+      <defs>
+        <linearGradient id="greenGradient" x1="0" y1="0" x2="0" y2="180">
+          <stop offset="0%" stop-color="#00D68F" stop-opacity="0.15"/>
+          <stop offset="100%" stop-color="#00D68F" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="yellowGradient" x1="0" y1="0" x2="0" y2="180">
+          <stop offset="0%" stop-color="#FFD60A" stop-opacity="0.08"/>
+          <stop offset="100%" stop-color="#FFD60A" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="chart-footer">
+    <div class="chart-dates">
+      <span>OCT 1</span>
+      <span>OCT 8</span>
+      <span>OCT 15</span>
+      <span>OCT 22</span>
+      <span>TODAY</span>
+    </div>
+    <div class="chart-stats">
+      <span class="stats-label">CURRENT LOAD</span>
+      <div class="stats-values">
+        <span class="stat">CTL <strong>47</strong></span>
+        <span class="stat">ATL <strong>52</strong></span>
+        <span class="stat tsb">TSB <strong>-5</strong></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .chart-card {
+    background: var(--color-surface, #1A1A1A);
+    border: 1px solid var(--color-surface-border, rgba(51, 97, 193, 0.15));
+    border-radius: 16px;
+    padding: 24px;
+    max-width: 520px;
+    width: 100%;
+    font-family: var(--font-body, 'Manrope', sans-serif);
+  }
+
+  .chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .chart-title {
+    font-family: var(--font-heading, 'Instrument Serif', serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text, #FFFFFF);
+    margin: 0;
+  }
+
+  .chart-legend {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--color-text-secondary, #888888);
+    letter-spacing: 0.05em;
+  }
+
+  .legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .legend-dot.green {
+    background: var(--color-signal-teal, #00D68F);
+  }
+
+  .legend-dot.yellow {
+    background: var(--color-caution-yellow, #FFD60A);
+  }
+
+  .chart-area {
+    margin-bottom: 16px;
+  }
+
+  .chart-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .chart-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .chart-dates {
+    display: flex;
+    gap: 0;
+    justify-content: space-between;
+    flex: 1;
+    margin-right: 24px;
+  }
+
+  .chart-dates span {
+    font-size: 0.625rem;
+    color: var(--color-text-tertiary);
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  .chart-stats {
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .stats-label {
+    display: block;
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: var(--color-text-tertiary);
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+  }
+
+  .stats-values {
+    display: flex;
+    gap: 14px;
+  }
+
+  .stat {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary, #888888);
+  }
+
+  .stat strong {
+    color: var(--color-text, #FFFFFF);
+    font-weight: 700;
+  }
+
+  .stat.tsb strong {
+    color: var(--color-signal-teal, #00D68F);
+  }
+
+  @media (max-width: 768px) {
+    .chart-card {
+      max-width: 100%;
+    }
+
+    .chart-footer {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 16px;
+    }
+
+    .chart-dates {
+      margin-right: 0;
+    }
+
+    .chart-stats {
+      text-align: left;
+    }
+  }
+</style>

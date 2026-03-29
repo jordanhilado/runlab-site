@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://runlab.fit/sitemap-index.xml

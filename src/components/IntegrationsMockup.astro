@@ -1,0 +1,154 @@
+---
+---
+
+<div class="integrations-mockup">
+  <div class="icons-row">
+    <div class="icon-box">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+    </div>
+    <div class="connector">
+      <span class="dot"></span>
+    </div>
+    <div class="icon-box icon-box-center">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M18.5 6L12 17h5.5L13.5 26l8-11h-5.5L18.5 6z" fill="white"/>
+      </svg>
+    </div>
+    <div class="connector">
+      <span class="dot"></span>
+    </div>
+    <div class="icon-box">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+        <path d="M12 3L17.5 8.5L15 11L12 8L9 11L6.5 8.5L12 3Z" fill="#FC4C02"/>
+        <path d="M9 11L12 16L15 11L12 14L9 11Z" fill="#FC4C02" opacity="0.6"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="metrics-grid">
+    <div class="metric-pill">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6B8A" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      <span>HEART RATE ZONES</span>
+    </div>
+    <div class="metric-pill">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8B9CF7" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <span>SLEEP QUALITY</span>
+    </div>
+    <div class="metric-pill">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5B8DEF" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      <span>VO2 MAX TRACKING</span>
+    </div>
+    <div class="metric-pill">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F97066" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+      <span>HRV RECOVERY</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .integrations-mockup {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 520px;
+  }
+
+  .icons-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .icon-box {
+    width: 64px;
+    height: 64px;
+    background: var(--color-surface, #1A1A1A);
+    border: 1px solid var(--color-surface-border, rgba(51, 97, 193, 0.15));
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--color-text);
+  }
+
+  .icon-box-center {
+    width: 80px;
+    height: 80px;
+    background: var(--color-brand-blue, #3361C1);
+    border: none;
+    border-radius: 20px;
+  }
+
+  .connector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    position: relative;
+  }
+
+  .connector::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--color-text-muted, #666);
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-signal-teal, #00D68F);
+    position: relative;
+    z-index: 1;
+  }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .metric-pill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 18px;
+    background: transparent;
+    border: 1px solid var(--color-surface-border, rgba(255, 255, 255, 0.08));
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-text-secondary, #888);
+  }
+
+  @media (max-width: 768px) {
+    .integrations-mockup {
+      max-width: 100%;
+    }
+
+    .icon-box {
+      width: 52px;
+      height: 52px;
+    }
+
+    .icon-box-center {
+      width: 68px;
+      height: 68px;
+    }
+
+    .connector {
+      width: 32px;
+    }
+
+    .metrics-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

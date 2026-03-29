@@ -1,0 +1,117 @@
+---
+---
+
+<div class="coach-card">
+  <div class="coach-header">
+    <svg class="sparkle-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 0L12.2 7.8L20 10L12.2 12.2L10 20L7.8 12.2L0 10L7.8 7.8L10 0Z" fill="currentColor"/>
+    </svg>
+    <span class="coach-title">Runlab Coach</span>
+  </div>
+
+  <div class="chat-messages">
+    <div class="message coach-message">
+      <p>Your recovery score is high (84%) but your TSB is -12 after yesterday's long run. Should we scale back today's tempo?</p>
+    </div>
+
+    <div class="message user-message">
+      <p>Yes, let's swap for a 30min recovery run. How does that impact Sunday's mileage?</p>
+    </div>
+
+    <div class="message coach-message">
+      <p>Swapping to recovery today preserves your CTL at 47. We'll still hit our weekly target of 42mi. Sunday remains a 12mi aerobic base run.</p>
+    </div>
+  </div>
+
+  <div class="chat-input">
+    <span class="input-placeholder">Ask about your training...</span>
+    <svg class="send-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3 10L17 10M17 10L11 4M17 10L11 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+</div>
+
+<style>
+  .coach-card {
+    background: var(--color-surface, #1A1A1A);
+    border: 1px solid var(--color-surface-border, rgba(51, 97, 193, 0.15));
+    border-radius: 16px;
+    padding: 24px;
+    max-width: 460px;
+    width: 100%;
+    font-family: var(--font-body, 'Manrope', sans-serif);
+  }
+
+  .coach-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .sparkle-icon {
+    flex-shrink: 0;
+    color: var(--color-brand-blue);
+  }
+
+  .coach-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-text, #FFFFFF);
+  }
+
+  .chat-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  .message p {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  .coach-message {
+    background: var(--color-surface-high);
+    border-radius: 12px;
+    padding: 14px 16px;
+    color: var(--color-text-secondary, #888888);
+    max-width: 90%;
+  }
+
+  .user-message {
+    background: var(--color-brand-blue, #3361C1);
+    border-radius: 12px;
+    padding: 14px 16px;
+    color: var(--color-text, #FFFFFF);
+    max-width: 80%;
+    align-self: flex-end;
+  }
+
+  .chat-input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--color-surface-high);
+    border-radius: 12px;
+    padding: 14px 16px;
+  }
+
+  .input-placeholder {
+    font-size: 0.875rem;
+    color: var(--color-text-tertiary);
+  }
+
+  .send-icon {
+    flex-shrink: 0;
+    color: var(--color-brand-blue);
+  }
+
+  @media (max-width: 768px) {
+    .coach-card {
+      max-width: 100%;
+    }
+  }
+</style>

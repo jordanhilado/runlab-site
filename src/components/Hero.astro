@@ -1,0 +1,220 @@
+---
+---
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1>Your AI running coach, powered by your data.</h1>
+      <p class="subtitle">
+        Personal AI coaching grounded in your real-time training load. Seamless Strava sync, structured plans, and deep physiological insights to help you run stronger.
+      </p>
+      <a href="#" class="cta-button">
+        <svg width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16.52 12.88c-.03-3.12 2.55-4.62 2.67-4.7-1.45-2.12-3.72-2.41-4.53-2.45-1.93-.2-3.76 1.14-4.74 1.14-.98 0-2.5-1.11-4.1-1.08C3.6 5.82 1.55 7.1.58 9.07c-1.97 3.41-.5 8.46 1.42 11.23.94 1.36 2.06 2.89 3.53 2.83 1.42-.06 1.95-.92 3.66-.92s2.19.92 3.69.89c1.52-.03 2.5-1.38 3.43-2.75 1.08-1.58 1.53-3.11 1.55-3.19-.03-.01-2.98-1.14-3.01-4.53l.67.25zM13.67 3.88C14.47 2.91 15.01 1.58 14.87.22c-1.15.05-2.55.77-3.37 1.73-.74.86-1.38 2.22-1.21 3.53 1.28.1 2.59-.65 3.38-1.6z" fill="currentColor"/>
+        </svg>
+        Download on the App Store
+      </a>
+      <div class="social-proof">
+        <div class="avatars">
+          <div class="avatar avatar-1">J</div>
+          <div class="avatar avatar-2">M</div>
+          <div class="avatar avatar-3">A</div>
+        </div>
+        <div class="stars">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="#FFD60A"><polygon points="9,1 11.5,6.5 17,7 13,11 14,17 9,14 4,17 5,11 1,7 6.5,6.5"/></svg>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="#FFD60A"><polygon points="9,1 11.5,6.5 17,7 13,11 14,17 9,14 4,17 5,11 1,7 6.5,6.5"/></svg>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="#FFD60A"><polygon points="9,1 11.5,6.5 17,7 13,11 14,17 9,14 4,17 5,11 1,7 6.5,6.5"/></svg>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="#FFD60A"><polygon points="9,1 11.5,6.5 17,7 13,11 14,17 9,14 4,17 5,11 1,7 6.5,6.5"/></svg>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="#FFD60A"><polygon points="9,1 11.5,6.5 17,7 13,11 14,17 9,14 4,17 5,11 1,7 6.5,6.5"/></svg>
+        </div>
+        <span class="trusted-text">Trusted by 10,000+ athletes</span>
+      </div>
+    </div>
+
+    <div class="hero-phone">
+      <img
+        src="https://pub-f8a7f7f2ab0b4163ad08ca1d392aee0e.r2.dev/IMG_3751-portrait.png"
+        alt="Runlab app showing Performance Dashboard with fitness and fatigue charts"
+        class="phone-image"
+        width="380"
+        height="760"
+        loading="eager"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: calc(100vh - 64px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
+    background: var(--color-bg);
+  }
+
+  .hero-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+  }
+
+  .hero-text {
+    flex: 0 0 55%;
+    max-width: 55%;
+  }
+
+  .hero-phone {
+    flex: 0 0 45%;
+    max-width: 45%;
+    display: flex;
+    justify-content: center;
+  }
+
+  h1 {
+    font-family: var(--font-heading);
+    font-size: 5.5rem;
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--color-text);
+    margin: 0 0 24px;
+  }
+
+  .subtitle {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin: 0 0 32px;
+    max-width: 520px;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--color-brand-blue);
+    color: #FFFFFF;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 14px 28px;
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .cta-button:hover {
+    opacity: 0.9;
+  }
+
+  .cta-button svg {
+    flex-shrink: 0;
+  }
+
+  .social-proof {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+  }
+
+  .avatars {
+    display: flex;
+    align-items: center;
+  }
+
+  .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    border: 2px solid var(--color-bg);
+  }
+
+  .avatar + .avatar {
+    margin-left: -10px;
+  }
+
+  .avatar-1 {
+    background: #6B4CE6;
+    z-index: 3;
+  }
+
+  .avatar-2 {
+    background: #3361C1;
+    z-index: 2;
+  }
+
+  .avatar-3 {
+    background: #8B5CF6;
+    z-index: 1;
+  }
+
+  .stars {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .trusted-text {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+
+  /* Phone Image */
+  .phone-image {
+    width: 380px;
+    height: auto;
+    border-radius: 32px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .hero {
+      min-height: calc(100vh - 64px);
+      padding: 40px 20px;
+    }
+
+    .hero-inner {
+      flex-direction: column;
+      gap: 48px;
+      text-align: center;
+    }
+
+    .hero-text {
+      flex: none;
+      max-width: 100%;
+    }
+
+    .hero-phone {
+      flex: none;
+      max-width: 100%;
+    }
+
+    h1 {
+      font-size: 3.25rem;
+    }
+
+    .subtitle {
+      max-width: 100%;
+      font-size: 1rem;
+    }
+
+    .social-proof {
+      justify-content: center;
+    }
+  }
+</style>

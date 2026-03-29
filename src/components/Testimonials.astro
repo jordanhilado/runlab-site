@@ -1,0 +1,72 @@
+<section class="testimonials">
+  <div class="testimonials-grid">
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p class="quote">"Finally, an app that understands the data from my Garmin. The AI coach helped me shave 12 minutes off my marathon time."</p>
+      <p class="attribution">— Sarah T., 3:15 Marathoner</p>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p class="quote">"The training load dashboard is a game changer. I've been injury-free for 8 months because I know exactly when to rest."</p>
+      <p class="attribution">— Mark D., Ultra Runner</p>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p class="quote">"Simple, beautiful, and technical. It feels like having a pro coach in my pocket for the price of a coffee."</p>
+      <p class="attribution">— Elena R., Trail Runner</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials {
+    padding: 80px 24px;
+    border-top: 1px solid var(--color-surface-border, rgba(51, 97, 193, 0.15));
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .testimonial {
+    text-align: left;
+  }
+
+  .stars {
+    color: var(--color-caution-yellow, #FFD60A);
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+
+  .quote {
+    font-family: var(--font-heading, 'Instrument Serif', serif);
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--color-text, #FFFFFF);
+    margin: 0 0 16px 0;
+  }
+
+  .attribution {
+    font-family: var(--font-body, 'Manrope', sans-serif);
+    font-size: 0.875rem;
+    color: var(--color-text-secondary, #888888);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .testimonials {
+      padding: 60px 20px;
+    }
+
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+</style>

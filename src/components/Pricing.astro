@@ -1,0 +1,317 @@
+---
+---
+
+<section class="pricing" id="pricing">
+  <div class="pricing-header">
+    <h2 class="pricing-headline">Simple pricing for serious runners.</h2>
+    <p class="pricing-subtitle">Start for free, upgrade when you're ready to peak.</p>
+
+    <div class="billing-toggle">
+      <input type="radio" id="billing-monthly" name="billing" value="monthly" class="billing-input" />
+      <label for="billing-monthly" class="billing-label">Monthly</label>
+      <input type="radio" id="billing-yearly" name="billing" value="yearly" class="billing-input" checked />
+      <label for="billing-yearly" class="billing-label">Yearly</label>
+      <div class="billing-slider"></div>
+    </div>
+  </div>
+
+  <div class="pricing-cards">
+    <!-- Runlab Free -->
+    <div class="card card-free">
+      <div class="card-top">
+        <h3 class="card-name">Runlab Free</h3>
+        <div class="card-price">
+          <span class="price">$0</span>
+          <span class="price-period">/ forever</span>
+        </div>
+        <ul class="features">
+          <li><span class="check check-gray">&#10003;</span> 60 days of activity history</li>
+          <li><span class="check check-gray">&#10003;</span> 5 AI coach messages per day</li>
+          <li><span class="check check-gray">&#10003;</span> Training load dashboard</li>
+          <li><span class="check check-gray">&#10003;</span> 1 active training plan</li>
+        </ul>
+      </div>
+      <a href="#" class="btn btn-outline">Start for free</a>
+    </div>
+
+    <!-- Runlab Elite -->
+    <div class="card card-elite" data-card="elite">
+      <span class="badge" data-badge>SAVE 25%</span>
+      <div class="card-top">
+        <h3 class="card-name">Runlab Elite</h3>
+        <div class="card-price">
+          <span class="price" data-price>$3.75</span>
+          <span class="price-period" data-period>/ mo billed annually at $44.99</span>
+        </div>
+        <ul class="features features-elite">
+          <li><span class="check check-blue">&#10003;</span> Unlimited activity history</li>
+          <li><span class="check check-blue">&#10003;</span> Unlimited AI coach access</li>
+          <li><span class="check check-blue">&#10003;</span> Customizable training dashboards</li>
+          <li><span class="check check-blue">&#10003;</span> Unlimited adaptive plans</li>
+          <li><span class="check check-blue">&#10003;</span> Advanced fatigue forecasting</li>
+        </ul>
+      </div>
+      <a href="#" class="btn btn-filled">Go Elite</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  const radios = document.querySelectorAll('input[name="billing"]');
+  const price = document.querySelector('[data-price]');
+  const period = document.querySelector('[data-period]');
+  const badge = document.querySelector('[data-badge]');
+
+  radios.forEach(radio => {
+    radio.addEventListener('change', () => {
+      const yearly = radio.value === 'yearly' && radio.checked;
+      if (yearly) {
+        price.textContent = '$3.75';
+        period.textContent = '/ mo billed annually at $44.99';
+        badge.style.display = '';
+      } else {
+        price.textContent = '$4.99';
+        period.textContent = '/ month';
+        badge.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+<style>
+  .pricing {
+    padding: 100px 24px;
+    text-align: center;
+  }
+
+  .pricing-header {
+    margin-bottom: 56px;
+  }
+
+  .pricing-headline {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin: 0 0 16px;
+    line-height: 1.2;
+  }
+
+  .pricing-subtitle {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    margin: 0 0 32px;
+  }
+
+  /* Billing toggle */
+  .billing-toggle {
+    display: inline-flex;
+    position: relative;
+    background: var(--color-surface);
+    border-radius: var(--radius-pill);
+    padding: 4px;
+    border: 1px solid var(--color-surface-border);
+  }
+
+  .billing-input {
+    display: none;
+  }
+
+  .billing-label {
+    position: relative;
+    z-index: 1;
+    padding: 8px 24px;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    border-radius: var(--radius-pill);
+    transition: color 0.25s;
+    user-select: none;
+  }
+
+  .billing-input:checked + .billing-label {
+    color: var(--color-text);
+  }
+
+  .billing-slider {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: calc(50% - 4px);
+    height: calc(100% - 8px);
+    background: var(--color-brand-blue);
+    border-radius: var(--radius-pill);
+    transition: transform 0.25s ease;
+    pointer-events: none;
+  }
+
+  #billing-yearly:checked ~ .billing-slider {
+    transform: translateX(100%);
+  }
+
+  .pricing-cards {
+    display: flex;
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  .card {
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    padding: 40px 32px 32px;
+    flex: 1;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    position: relative;
+  }
+
+  .card-free {
+    border: 1px solid var(--color-surface-border);
+  }
+
+  .card-elite {
+    border: 1px solid var(--color-brand-blue);
+  }
+
+  .badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--color-signal-teal);
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .card-top {
+    flex: 1;
+  }
+
+  .card-name {
+    font-family: var(--font-body);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 20px;
+  }
+
+  .card-price {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 32px;
+  }
+
+  .price {
+    font-family: var(--font-body);
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-text);
+    line-height: 1;
+  }
+
+  .price-period {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+  }
+
+  .features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .features li {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .features-elite li {
+    color: var(--color-text);
+    font-weight: 700;
+  }
+
+  .check {
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .check-gray {
+    color: var(--color-text-secondary);
+  }
+
+  .check-blue {
+    color: var(--color-brand-blue);
+  }
+
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 14px 24px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border-radius: var(--radius-pill);
+    box-sizing: border-box;
+    transition: opacity 0.2s ease;
+  }
+
+  .btn:hover {
+    opacity: 0.85;
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--color-text);
+    border: 1px solid #333;
+  }
+
+  .btn-filled {
+    background: var(--color-brand-blue);
+    color: #fff;
+    border: none;
+  }
+
+  @media (max-width: 768px) {
+    .pricing {
+      padding: 72px 20px;
+    }
+
+    .pricing-headline {
+      font-size: 2rem;
+    }
+
+    .pricing-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card {
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+</style>

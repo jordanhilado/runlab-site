@@ -1,0 +1,102 @@
+---
+interface Props {
+  label: string;
+  headline: string;
+  body: string;
+  reversed: boolean;
+  id?: string;
+}
+
+const { label, headline, body, reversed, id } = Astro.props;
+---
+
+<section class:list={["feature-section", { reversed }]} id={id}>
+  <div class="feature-grid">
+    <div class="feature-text">
+      <span class="feature-label">{label}</span>
+      <h2 class="feature-headline">{headline}</h2>
+      <p class="feature-body">{body}</p>
+    </div>
+    <div class="feature-mockup">
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style>
+  .feature-section {
+    padding: 120px 0;
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .feature-section.reversed .feature-grid {
+    direction: rtl;
+  }
+
+  .feature-section.reversed .feature-text,
+  .feature-section.reversed .feature-mockup {
+    direction: ltr;
+  }
+
+  .feature-label {
+    display: block;
+    color: var(--color-brand-blue, #3361C1);
+    font-family: var(--font-body, 'Manrope', sans-serif);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+
+  .feature-headline {
+    font-family: var(--font-heading, 'Instrument Serif', serif);
+    font-size: 2.8rem;
+    font-weight: 400;
+    color: var(--color-text, #FFFFFF);
+    margin: 0 0 20px 0;
+    line-height: 1.15;
+  }
+
+  .feature-body {
+    font-family: var(--font-body, 'Manrope', sans-serif);
+    font-size: 1rem;
+    color: var(--color-text-secondary, #888888);
+    line-height: 1.7;
+    max-width: 500px;
+    margin: 0;
+  }
+
+  .feature-mockup {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    .feature-section {
+      padding: 80px 0;
+    }
+
+    .feature-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .feature-section.reversed .feature-grid {
+      direction: ltr;
+    }
+
+    .feature-headline {
+      font-size: 2rem;
+    }
+  }
+</style>

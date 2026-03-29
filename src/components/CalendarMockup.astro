@@ -1,0 +1,227 @@
+---
+---
+
+<div class="calendar-card">
+  <div class="calendar-header">
+    <h3 class="calendar-title">Your Calendar</h3>
+    <div class="calendar-nav">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 15L7 10L12 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 5L13 10L8 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="weekday-row">
+    <span>M</span>
+    <span>T</span>
+    <span>W</span>
+    <span>T</span>
+    <span>F</span>
+    <span>S</span>
+    <span>S</span>
+  </div>
+
+  <div class="day-indicators">
+    <div class="day">
+      <span class="day-number">14</span>
+      <span class="day-dot blue"></span>
+    </div>
+    <div class="day">
+      <span class="day-number">15</span>
+      <span class="day-dot green"></span>
+    </div>
+    <div class="day today">
+      <span class="day-number">16</span>
+      <span class="day-dot red"></span>
+    </div>
+    <div class="day">
+      <span class="day-number">17</span>
+      <span class="day-dot blue"></span>
+    </div>
+    <div class="day">
+      <span class="day-number">18</span>
+    </div>
+    <div class="day">
+      <span class="day-number">19</span>
+      <span class="day-text">12m</span>
+    </div>
+    <div class="day">
+      <span class="day-number">20</span>
+      <span class="day-dot blue"></span>
+    </div>
+  </div>
+
+  <div class="today-workout">
+    <div class="workout-accent"></div>
+    <div class="workout-info">
+      <span class="workout-meta">TODAY &middot; 11:00 AM</span>
+      <span class="workout-title">Tempo Run: 45min @ 7:45 pace</span>
+    </div>
+    <div class="workout-check">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="11" cy="11" r="10" stroke="var(--color-text-tertiary)" stroke-width="1.5"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<style>
+  .calendar-card {
+    background: var(--color-surface, #1A1A1A);
+    border: 1px solid var(--color-surface-border, rgba(51, 97, 193, 0.15));
+    border-radius: 16px;
+    padding: 24px;
+    max-width: 460px;
+    width: 100%;
+    font-family: var(--font-body, 'Manrope', sans-serif);
+  }
+
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .calendar-title {
+    font-family: var(--font-heading, 'Instrument Serif', serif);
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--color-text, #FFFFFF);
+    margin: 0;
+  }
+
+  .calendar-nav {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    color: var(--color-text-secondary);
+  }
+
+  .calendar-nav svg {
+    cursor: pointer;
+    opacity: 0.6;
+  }
+
+  .weekday-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .weekday-row span {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--color-text-tertiary);
+    letter-spacing: 0.05em;
+  }
+
+  .day-indicators {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    margin-bottom: 24px;
+  }
+
+  .day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 0;
+  }
+
+  .day-number {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text-secondary, #888888);
+  }
+
+  .day.today .day-number {
+    color: var(--color-text, #FFFFFF);
+    background: var(--color-brand-blue, #3361C1);
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+  }
+
+  .day-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+
+  .day-dot.blue {
+    background: var(--color-brand-blue, #3361C1);
+  }
+
+  .day-dot.green {
+    background: var(--color-signal-teal, #00D68F);
+  }
+
+  .day-dot.red {
+    background: var(--color-alert-red, #FF4538);
+  }
+
+  .day-text {
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: var(--color-brand-blue, #3361C1);
+  }
+
+  .today-workout {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--color-surface-high);
+    border-radius: 12px;
+    padding: 16px;
+  }
+
+  .workout-accent {
+    width: 4px;
+    height: 40px;
+    background: var(--color-brand-blue, #3361C1);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  .workout-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+  }
+
+  .workout-meta {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--color-text-tertiary);
+    letter-spacing: 0.05em;
+  }
+
+  .workout-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text, #FFFFFF);
+  }
+
+  .workout-check {
+    flex-shrink: 0;
+    opacity: 0.5;
+  }
+
+  @media (max-width: 768px) {
+    .calendar-card {
+      max-width: 100%;
+    }
+  }
+</style>
