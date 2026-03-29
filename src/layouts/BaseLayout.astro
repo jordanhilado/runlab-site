@@ -69,15 +69,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
         <a href="#" class="nav-cta">Download</a>
-      </div>
 
-      <!-- Mobile hamburger -->
-      <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Toggle navigation menu" />
-      <label for="nav-toggle" class="nav-hamburger" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </label>
+        <!-- Mobile hamburger -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Toggle navigation menu" />
+        <label for="nav-toggle" class="nav-hamburger" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+      </div>
 
       <div class="nav-mobile">
         <a href="/#features">Features</a>
@@ -264,15 +264,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     transition: transform 0.3s, opacity 0.3s;
   }
 
-  .nav-toggle-input:checked ~ .nav-hamburger span:nth-child(1) {
+  .nav-toggle-input:checked + .nav-hamburger span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
   }
 
-  .nav-toggle-input:checked ~ .nav-hamburger span:nth-child(2) {
+  .nav-toggle-input:checked + .nav-hamburger span:nth-child(2) {
     opacity: 0;
   }
 
-  .nav-toggle-input:checked ~ .nav-hamburger span:nth-child(3) {
+  .nav-toggle-input:checked + .nav-hamburger span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
   }
 
@@ -289,7 +289,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     gap: 16px;
   }
 
-  .nav-toggle-input:checked ~ .nav-mobile {
+  .nav-inner:has(.nav-toggle-input:checked) .nav-mobile {
     display: flex;
   }
 
@@ -321,7 +321,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       display: none;
     }
 
-    .nav-actions .nav-cta {
+    .nav-cta {
       display: none;
     }
 
