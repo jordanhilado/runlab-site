@@ -7,7 +7,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <article class="privacy-content">
       <header>
         <h1>Privacy Policy</h1>
-        <p class="last-updated">Last updated: March 24, 2026</p>
+        <p class="last-updated">Last updated: April 5, 2026</p>
         <p class="intro">Your privacy matters. This policy explains what data Runlab collects, how it is used, and your rights.</p>
       </header>
 
@@ -18,7 +18,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <p>When you create an account, we collect your email address and display name. If you sign in with Apple or Google, we receive limited profile information from those providers.</p>
 
         <h3>Strava Data</h3>
-        <p>If you connect Strava, we access your activity data (runs, distances, pace, heart rate, routes) through the Strava API with your explicit permission. We request read-only access and never post to your Strava account.</p>
+        <p>If you connect Strava, we access your activity data through the Strava API with your explicit permission via OAuth authorization. We request read-only access (<code>read</code> and <code>activity:read_all</code> scopes) and never post to your Strava account. Data accessed includes activity summaries, heart rate streams, pace streams, cadence data, elevation data, and GPS route data.</p>
+        <p>Raw Strava data is processed into Runlab-computed derived metrics (such as Training Stress Score, Efficiency Factor, zone distributions, and pacing analysis) and then <strong>permanently purged</strong> from our servers in the same atomic operation. Only Runlab's proprietary computed analytics and AI-generated content (activity names and summaries) are retained — not the original Strava data. This process is designed to comply with Strava's API data retention requirements.</p>
 
         <h3>Apple Health Data</h3>
         <p>If you connect Apple Health, we read the following data types with your explicit permission:</p>
@@ -55,13 +56,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <section>
         <h2>4. AI Coach &amp; Data Processing</h2>
-        <p>When you use the AI Coach feature, your training data and health metrics may be sent to Anthropic's Claude API via our backend server to generate personalized responses. This data is:</p>
+        <p>When you use the AI Coach feature, your Runlab-computed training metrics and health data may be sent to Anthropic's Claude API via our backend server to generate personalized coaching responses. This data is:</p>
         <ul>
           <li>Transmitted securely via our backend server (never directly from your device to Anthropic)</li>
-          <li>Used only to generate your coaching response</li>
-          <li>Not used by Anthropic to train their models</li>
+          <li>Used only for real-time inference to generate your coaching response — <strong>not for AI model training</strong></li>
           <li>Not stored by Anthropic beyond the processing of your request</li>
         </ul>
+        <p>Per <a href="https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training" target="_blank" rel="noopener noreferrer">Anthropic's data policy</a>: <em>"By default, we will not use your inputs or outputs from our commercial products (e.g. Claude for Work, Anthropic API, Claude Gov, etc.) to train our models."</em> Runlab uses the Anthropic API, which is covered by this policy.</p>
+        <p><strong>No Strava data — whether raw or derived — is used, directly or indirectly, for artificial intelligence model training, machine learning, or similar applications.</strong> The AI Coach uses your data solely for real-time, per-request inference to provide you with personalized coaching responses.</p>
+
+        <h3>AI-Generated Content</h3>
+        <p>Runlab generates activity names and summaries using AI inference from your computed training metrics. These AI-generated names and summaries are Runlab's own proprietary content — they are not modified versions of Strava data. Original Strava activity metadata (including activity names) is not retained after metric computation.</p>
       </section>
 
       <section>
@@ -87,7 +92,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </section>
 
       <section>
-        <h2>7. Your Rights &amp; Controls</h2>
+        <h2>7. Strava Data</h2>
+        <p>In compliance with the <a href="https://www.strava.com/legal/api" target="_blank" rel="noopener noreferrer">Strava API Agreement</a> and <a href="https://developers.strava.com/guidelines/" target="_blank" rel="noopener noreferrer">Strava Brand Guidelines</a>:</p>
+        <ul>
+          <li><strong>Consent.</strong> Strava data is accessed only after you explicitly authorize Runlab via Strava's OAuth flow. You control which permissions are granted.</li>
+          <li><strong>Read-only access.</strong> Runlab requests only <code>read</code> and <code>activity:read_all</code> scopes. We never write to, post on, or modify your Strava account.</li>
+          <li><strong>Data processing.</strong> Raw Strava data (activity details, streams, zones) is used to compute Runlab's proprietary derived metrics and is then permanently purged from our servers. Only Runlab-computed analytics and AI-generated content are retained.</li>
+          <li><strong>No raw data storage.</strong> Original Strava content — including activity names, descriptions, GPS routes, and raw data streams — is not stored beyond the processing window required to compute derived metrics.</li>
+          <li><strong>No model training.</strong> Strava data is never used, directly or indirectly, for artificial intelligence model training, machine learning, or similar applications.</li>
+          <li><strong>No third-party disclosure.</strong> Strava data and Runlab-derived metrics are never sold, licensed, or disclosed to third parties. Only the authenticated Strava user can access their own data.</li>
+          <li><strong>Withdrawal of consent.</strong> You can disconnect Strava at any time from the Profile screen in the app. Disconnecting immediately revokes the OAuth token with Strava and permanently deletes all imported activity data and derived metrics from our servers.</li>
+          <li><strong>Deletion on deauthorization.</strong> If you revoke Runlab's access from Strava's settings, we receive a deauthorization webhook and automatically delete all of your Strava-related data from our servers.</li>
+          <li><strong>Activity deletion sync.</strong> If you delete an activity on Strava, we receive a webhook notification and remove the corresponding data from our servers.</li>
+          <li><strong>Strava monitoring.</strong> Strava may monitor and collect certain usage data about how Runlab interacts with the Strava API. This monitoring is governed by <a href="https://www.strava.com/legal/privacy" target="_blank" rel="noopener noreferrer">Strava's Privacy Policy</a>.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>8. Your Rights &amp; Controls</h2>
         <ul>
           <li><strong>Access &amp; Export.</strong> You can view all your data within the app at any time.</li>
           <li><strong>Disconnect Integrations.</strong> You can disconnect Strava or Apple Health at any time from your profile. Disconnecting Strava also deletes all imported Strava activities.</li>
@@ -97,22 +119,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </section>
 
       <section>
-        <h2>8. Data Retention</h2>
+        <h2>9. Data Retention</h2>
         <p>We retain your data for as long as your account is active. When you delete your account, all personal data, activity data, health snapshots, and AI coach history are permanently deleted from our servers.</p>
       </section>
 
       <section>
-        <h2>9. Children's Privacy</h2>
+        <h2>10. Children's Privacy</h2>
         <p>Runlab is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13.</p>
       </section>
 
       <section>
-        <h2>10. Changes to This Policy</h2>
+        <h2>11. Changes to This Policy</h2>
         <p>We may update this Privacy Policy from time to time. We will notify you of material changes through the app or via email. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
       </section>
 
       <section>
-        <h2>11. Contact Us</h2>
+        <h2>12. Contact Us</h2>
         <p>If you have questions about this Privacy Policy or your data, please contact us at:</p>
         <p><strong>Email:</strong> <a href="mailto:privacy@runlab.fit">privacy@runlab.fit</a></p>
       </section>
@@ -204,6 +226,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   strong {
     color: var(--color-text);
     font-weight: 600;
+  }
+
+  code {
+    font-family: 'SF Mono', 'Menlo', monospace;
+    font-size: 0.85em;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--color-text);
   }
 
   a {
