@@ -7,7 +7,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <article class="privacy-content">
       <header>
         <h1>Privacy Policy</h1>
-        <p class="last-updated">Last updated: April 5, 2026</p>
+        <p class="last-updated">Last updated: April 13, 2026</p>
         <p class="intro">Your privacy matters. This policy explains what data Runlab collects, how it is used, and your rights.</p>
       </header>
 
@@ -16,6 +16,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
         <h3>Account Information</h3>
         <p>When you create an account, we collect your email address and display name. If you sign in with Apple or Google, we receive limited profile information from those providers.</p>
+
+        <h3>Athlete Profile Data</h3>
+        <p>To provide personalized coaching and training plans, we collect the following profile information that you provide during onboarding or in your profile settings:</p>
+        <ul>
+          <li><strong>Physical information</strong> — height, weight, date of birth, and gender</li>
+          <li><strong>Training preferences</strong> — fitness/experience level, primary running goal, goal race distance, weekly mileage target, preferred training days, preferred long run day, and unit system (Imperial/Metric)</li>
+        </ul>
+        <p>This data is synced to our servers so your profile can be restored when you sign in on a new device.</p>
+
+        <h3>AI Coach Conversation History</h3>
+        <p>When you use the AI Coach, we store your conversation history on our servers to provide a continuous coaching experience across devices. This includes:</p>
+        <ul>
+          <li><strong>Conversation metadata</strong> — title, creation date, and last updated date</li>
+          <li><strong>Messages</strong> — the messages you send and the AI assistant responses you receive</li>
+          <li><strong>Activity attachments</strong> — references to activities you attach when asking the coach to analyze a specific run (activity name, sport type, distance, duration, and date)</li>
+        </ul>
+
+        <h3>Completed Training Plans</h3>
+        <p>When you complete a training plan, we store a record of your achievement on our servers. This includes the plan name, distance, difficulty level, race date, plan duration, workout completion counts, and completion timestamp.</p>
 
         <h3>Strava Data</h3>
         <p>If you connect Strava, we access your activity data through the Strava API with your explicit permission via OAuth authorization. We request read-only access (<code>read</code> and <code>activity:read_all</code> scopes) and never post to your Strava account. Data accessed includes activity summaries, heart rate streams, pace streams, cadence data, elevation data, and GPS route data.</p>
@@ -40,8 +59,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <section>
         <h2>2. How We Use Your Information</h2>
         <ul>
-          <li><strong>Personalized Coaching.</strong> Your training data and health metrics are used to generate AI-powered coaching insights tailored to your fitness level and goals.</li>
-          <li><strong>Training Analysis.</strong> Activity data is processed to compute performance metrics (training load, fitness, fatigue) and generate activity summaries.</li>
+          <li><strong>Personalized Coaching.</strong> Your training data, health metrics, and athlete profile are used to generate AI-powered coaching insights tailored to your fitness level and goals.</li>
+          <li><strong>Training Zones &amp; Analysis.</strong> Your profile data (age, weight, fitness level) is used to calculate heart rate zones and pace zones, and to enrich activity analysis with profile-aware metrics such as training load, fitness, and fatigue.</li>
+          <li><strong>AI Coach Context.</strong> Your athlete profile is provided as context to the AI Coach so responses are personalized to your body, experience level, and training goals.</li>
+          <li><strong>Cross-Device Restore.</strong> Your athlete profile, coaching conversations, and completed training plan records are synced to our servers so they can be restored automatically when you sign in on a new device.</li>
+          <li><strong>Coaching History.</strong> Your AI Coach conversation history is preserved so you can reference past training advice, analysis, and recommendations at any time.</li>
           <li><strong>Health Context.</strong> Apple Health data is used to provide recovery recommendations and inform training suggestions based on your physiological state.</li>
           <li><strong>Account Management.</strong> Your email is used for authentication, account recovery, and essential service communications.</li>
         </ul>
@@ -50,13 +72,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <section>
         <h2>3. Data Storage &amp; Security</h2>
         <p>Your data is stored on secure servers hosted by Supabase (cloud infrastructure) and Railway (backend processing). All data is transmitted using HTTPS/TLS encryption in transit.</p>
+        <p><strong>Athlete profile data, AI Coach conversations, and completed training plan records</strong> are stored in our Supabase database (PostgreSQL), linked to your authenticated account, and protected by row-level security policies that ensure only you can access your own data. All data is transmitted exclusively over HTTPS.</p>
         <p><strong>Apple Health data is never stored in iCloud.</strong> Health snapshots are transmitted securely to our servers for processing and are protected by row-level security policies that ensure only you can access your data.</p>
         <p>We use industry-standard encryption for sensitive data including authentication tokens and connection credentials.</p>
       </section>
 
       <section>
         <h2>4. AI Coach &amp; Data Processing</h2>
-        <p>When you use the AI Coach feature, your Runlab-computed training metrics and health data may be sent to Anthropic's Claude API via our backend server to generate personalized coaching responses. This data is:</p>
+        <p>When you use the AI Coach feature, your Runlab-computed training metrics, athlete profile, and health data may be sent to Anthropic's Claude API via our backend server to generate personalized coaching responses. Your conversation history is stored on our servers for cross-device access but is never used for AI model training. This data is:</p>
         <ul>
           <li>Transmitted securely via our backend server (never directly from your device to Anthropic)</li>
           <li>Used only for real-time inference to generate your coaching response — <strong>not for AI model training</strong></li>
@@ -71,7 +94,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <section>
         <h2>5. Data Sharing</h2>
-        <p><strong>We do not sell your data.</strong> We do not sell, rent, or share your personal information or health data with third parties for advertising, marketing, or data brokerage purposes.</p>
+        <p><strong>We do not sell your data.</strong> We do not sell, rent, or share your personal information, athlete profile data, coaching conversations, or health data with third parties for advertising, marketing, data brokerage, or model training purposes. This data is used exclusively for app functionality.</p>
         <p>We may share data only in the following limited circumstances:</p>
         <ul>
           <li><strong>Service Providers.</strong> With infrastructure providers (Supabase, Railway, Anthropic) solely to operate the service, under strict data processing agreements.</li>
@@ -120,7 +143,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <section>
         <h2>9. Data Retention</h2>
-        <p>We retain your data for as long as your account is active. When you delete your account, all personal data, activity data, health snapshots, and AI coach history are permanently deleted from our servers.</p>
+        <p>We retain your data for as long as your account is active. When you delete a conversation in the app, it and all its messages are permanently removed from our servers. When you delete your account, all personal data — including your athlete profile, activity data, health snapshots, AI coach conversations, and completed training plan records — is permanently and irreversibly deleted from our servers. This cannot be undone.</p>
       </section>
 
       <section>
